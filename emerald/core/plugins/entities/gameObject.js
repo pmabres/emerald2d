@@ -40,12 +40,12 @@ Emerald.GameObject = function (name,tag) {
         },
         addChild:function(obj){
             this.childs.push(obj);
-            obj.parent = this;
+            obj.setParent(this);
         },
         addChilds:function(arrObj){
             for (var i=0;i<arrObj.length;i++){
                 this.childs.push(arrObj[i]);
-                arrObj[i].parent = this;
+                arrObj[i].setParent(this);
             }
         },
         setParent:function(obj){
