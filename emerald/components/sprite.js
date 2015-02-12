@@ -2,7 +2,8 @@
 /*
  * Animation Data Sample:
  *   var data:{
- *    def:{height:20,width:20,action:{frames:[1,2,3],execute:function(gameObject){}},pivot:{x:0,y:0}},
+ *    def:{height:20,width:20,groups:[{name:"groupname",from:1,to:20,frames:[1,4,3,2]}],action:{frames:[1,2,3],execute:function(gameObject){}},pivot:{x:0,y:0}},
+
  frames:[
  {x:10,y:20,height:20,width:20,pivot:{x:0,y:0},execute:function(gameObject){}}
  ]
@@ -15,6 +16,7 @@ Emerald.sprite = function(imgName,animationData){
         debug:false,
         image:{},
         animationData:[],
+        animationGroups:{},
         enabled:false,
         frames:0,
         currentFrame:0,
@@ -37,8 +39,10 @@ Emerald.sprite = function(imgName,animationData){
                 if (imageData.constructor !== Array){
                     var amountX = getClosestMultiple(imageData.width,this.image.obj.width);
                     var amountY = getClosestMultiple(imageData.height,this.image.obj.height);
-
                     var counter = 1;
+                    for (var i=0;imageData.groups.length;i++){
+
+                    }
                     for (var y=0;y<amountY;y++){
                         for (var x=0;x<amountX;x++){
                             var func;
@@ -70,6 +74,11 @@ Emerald.sprite = function(imgName,animationData){
         setFrame:function(frameNumber){
             if (frameNumber < this.frames)
                 this.currentFrame = frameNumber;
+        },
+        changeAnimation:function(name){
+            //TODO: figure out a way to swap between animations offering the possiblity to continue prev animation.
+            this.resetAnimation();
+            this.animationData = this.animationGroups[name];
         },
         nextFrame:function(){
             this.currentFrame++;
