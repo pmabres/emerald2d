@@ -40,9 +40,12 @@ Emerald.sprite = function(imgName,animationData){
                     var amountX = getClosestMultiple(imageData.width,this.image.obj.width);
                     var amountY = getClosestMultiple(imageData.height,this.image.obj.height);
                     var counter = 1;
-                    for (var i=0;imageData.groups.length;i++){
+                    if (imageData.groups){
+                        for (var i=0;imageData.groups.length;i++){
 
+                        }
                     }
+
                     for (var y=0;y<amountY;y++){
                         for (var x=0;x<amountX;x++){
                             var func;
