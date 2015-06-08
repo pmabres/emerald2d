@@ -1,6 +1,5 @@
 'use strict';
-
-Emerald.animation = function(imgData){
+emerald.animation = function(imgData){
     var imageData = imgData;
     return {
         name:"animation",
@@ -32,8 +31,6 @@ Emerald.animation = function(imgData){
             ctx.drawImage(this.image,go.transform.position.x,go.transform.position.y);
         },
         update:function(){
-
-        },
-
+        }
     };
 };

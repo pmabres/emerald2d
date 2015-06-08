@@ -2,7 +2,7 @@
  * Created by Pancho on 23/10/2014.
  */
 'use strict';
-Emerald.plugins["manager"] = (function(){
+emerald.plugins["manager"] = (function(){
     return {
         stopped:true,
         debug:false,
@@ -10,22 +10,22 @@ Emerald.plugins["manager"] = (function(){
 
         },
         init:function(){
-            Emerald.gameObjects = [];
-            //Emerald.goIdx = 0;
-            Emerald.addGameObject = Emerald.plugins.manager.addGameObject;
-            Emerald.removeGameObject = Emerald.plugins.manager.removeGameObject;
-            Emerald.findGameObjectById = Emerald.plugins.manager.findGameObjectById;
-            Emerald.findGameObjectByName = Emerald.plugins.manager.findGameObjectByName;
-            Emerald.findGameObjectByTag = Emerald.plugins.manager.findGameObjectByTag;
-            Emerald.findGameObjectByProperty = Emerald.plugins.manager.findGameObjectByProperty;
+            emerald.gameObjects = [];
+            //emerald.goIdx = 0;
+            emerald.addGameObject = emerald.plugins.manager.addGameObject;
+            emerald.removeGameObject = emerald.plugins.manager.removeGameObject;
+            emerald.findGameObjectById = emerald.plugins.manager.findGameObjectById;
+            emerald.findGameObjectByName = emerald.plugins.manager.findGameObjectByName;
+            emerald.findGameObjectByTag = emerald.plugins.manager.findGameObjectByTag;
+            emerald.findGameObjectByProperty = emerald.plugins.manager.findGameObjectByProperty;
         },
         removeGameObject:function(dynamic){
             // Dynamic can be either a GameObject, an id (numeric) or a string
-            return removeElement(Emerald.gameObjects,dynamic);
+            return removeElement(emerald.gameObjects,dynamic);
         },
         addGameObject:function(gameObject){
-            //gameObject.id = Emerald.goIdx++;
-            Emerald.gameObjects.push(gameObject);
+            //gameObject.id = emerald.goIdx++;
+            emerald.gameObjects.push(gameObject);
             /*for (var b=0; b < gameObject.components.length;b++){
                 if (gameObject.components[b].init) gameObject.components[b].init();
             }*/
@@ -40,33 +40,33 @@ Emerald.plugins["manager"] = (function(){
             return this.findGameObjectByProperty("tag",tag,executeFound);
         },
         findGameObjectByProperty:function(prop,value,executeFound){
-            return findElementByProperty(Emerald.gameObjects,prop,value,executeFound);
+            return findElementByProperty(emerald.gameObjects,prop,value,executeFound);
         },
         start:function(){
-            for (var i=0; i < Emerald.gameObjects.length; i++) {
-                for (var b=0; b < Emerald.gameObjects[i].components.length;b++){
-                    if (Emerald.gameObjects[i].components[b].start) Emerald.gameObjects[i].components[b].start();
+            for (var i=0; i < emerald.gameObjects.length; i++) {
+                for (var b=0; b < emerald.gameObjects[i].components.length;b++){
+                    if (emerald.gameObjects[i].components[b].start) emerald.gameObjects[i].components[b].start();
                 }
             }
         },
         resume:function(){
-            for (var i=0; i < Emerald.gameObjects.length; i++) {
-                for (var b=0; b < Emerald.gameObjects[i].components.length;b++){
-                    if (Emerald.gameObjects[i].components[b].resume) Emerald.gameObjects[i].components[b].resume();
+            for (var i=0; i < emerald.gameObjects.length; i++) {
+                for (var b=0; b < emerald.gameObjects[i].components.length;b++){
+                    if (emerald.gameObjects[i].components[b].resume) emerald.gameObjects[i].components[b].resume();
                 }
             }
         },
         stop:function(){
-            for (var i=0; i < Emerald.gameObjects.length; i++) {
-                for (var b=0; b < Emerald.gameObjects[i].components.length;b++){
-                    if (Emerald.gameObjects[i].components[b].stop) Emerald.gameObjects[i].components[b].stop();
+            for (var i=0; i < emerald.gameObjects.length; i++) {
+                for (var b=0; b < emerald.gameObjects[i].components.length;b++){
+                    if (emerald.gameObjects[i].components[b].stop) emerald.gameObjects[i].components[b].stop();
                 }
             }
         },
         end:function(){
-            for (var i=0; i < Emerald.gameObjects.length; i++) {
-                for (var b=0; b < Emerald.gameObjects[i].components.length;b++){
-                    if (Emerald.gameObjects[i].components[b].end) Emerald.gameObjects[i].components[b].end();
+            for (var i=0; i < emerald.gameObjects.length; i++) {
+                for (var b=0; b < emerald.gameObjects[i].components.length;b++){
+                    if (emerald.gameObjects[i].components[b].end) emerald.gameObjects[i].components[b].end();
                 }
             }
         }

@@ -1,5 +1,5 @@
 'use strict';
-Emerald.transform = function(){
+emerald.transform = function(){
     return {
         name:"transform",
         stopped:true,

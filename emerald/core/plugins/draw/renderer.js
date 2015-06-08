@@ -2,8 +2,8 @@
  * Created by Pancho on 23/10/2014.
  */
 'use strict';
-Emerald.plugins["renderer"] = (function(){
-    Emerald.renderer = Emerald.plugins.renderer;
+emerald.plugins["renderer"] = (function(){
+    emerald.renderer = emerald.plugins.renderer;
     return {
         stopped:true,
         debug:false,
@@ -19,7 +19,7 @@ Emerald.plugins["renderer"] = (function(){
             buffer:{},
             resources:{},
             setSize:function(width,height){
-                var viewport = Emerald.plugins.renderer.viewport;
+                var viewport = emerald.plugins.renderer.viewport;
                 viewport.size = new Scale(width,height);
                 viewport.context.height = viewport.size.y;
                 viewport.context.width = viewport.size.x;
@@ -96,10 +96,10 @@ Emerald.plugins["renderer"] = (function(){
             buffer.fillStyle = this.clearColor;
             buffer.fillRect(0,0,size.x,size.y);
             buffer.fillStyle = "black";
-            for (var i=0; i < Emerald.gameObjects.length; i++) {
-                if (Emerald.gameObjects[i].visible) {
-                    for (var comp in Emerald.gameObjects[i].components) {
-                        if (Emerald.gameObjects[i].components[comp].draw) Emerald.gameObjects[i].components[comp].draw(this.viewport.contextBuffer);
+            for (var i=0; i < emerald.gameObjects.length; i++) {
+                if (emerald.gameObjects[i].visible) {
+                    for (var comp in emerald.gameObjects[i].components) {
+                        if (emerald.gameObjects[i].components[comp].draw) emerald.gameObjects[i].components[comp].draw(this.viewport.contextBuffer);
                     }
                 }
             }

@@ -9,7 +9,7 @@
  ]
  };
  * */
-Emerald.sprite = function(imgName,animationData){
+emerald.sprite = function(imgName,animationData){
     var sprite = {
         name:"sprite",
         stopped:true,
@@ -26,7 +26,7 @@ Emerald.sprite = function(imgName,animationData){
         },
         setImage:function(imageName){
             if (imageName) {
-                this.image = Emerald.plugins.resource.resources[imageName];
+                this.image = emerald.plugins.resource.resources[imageName];
             }
         },
         setAnimationData:function(imageData){
@@ -107,7 +107,7 @@ Emerald.sprite = function(imgName,animationData){
         },
         start:function(){
             var self = this;
-            if (Emerald.plugins.resource.hasFinished){
+            if (emerald.plugins.resource.hasFinished){
                 //this.image.obj.finishLoad = function(){
                 self.objectLoaded();
                 //};

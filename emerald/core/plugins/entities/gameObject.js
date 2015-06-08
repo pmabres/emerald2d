@@ -1,10 +1,10 @@
-Emerald.GameObjectLastId = 0;
-Emerald.GameObject = function (name,tag) {
-    Emerald.GameObjectLastId++;
-    var objName = name || "defaultName"+Emerald.GameObjectLastId;
+emerald.GameObjectLastId = 0;
+emerald.GameObject = function (name,tag) {
+    emerald.GameObjectLastId++;
+    var objName = name || "defaultName"+emerald.GameObjectLastId;
     var objTag = tag||"default";
     var gameObject = {
-        id:Emerald.GameObjectLastId,
+        id:emerald.GameObjectLastId,
         name:objName,
         tag:objTag,
         components: {},
@@ -94,6 +94,6 @@ Emerald.GameObject = function (name,tag) {
         }
     };
     // On initialization we add the basic component needed (transform)
-    gameObject.addComponent(new Emerald.transform());
+    gameObject.addComponent(new emerald.transform());
     return gameObject;
 };

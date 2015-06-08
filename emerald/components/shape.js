@@ -1,5 +1,5 @@
 'use strict';
-Emerald.shape = function(shape){
+emerald.shape = function(shape){
     var drawFunction;
     var detectShape = function(shp){
         if (shp){

@@ -2,7 +2,7 @@
  * Created by Pancho on 23/10/2014.
  */
 'use strict';
-Emerald.plugins["resource"] = (function(){
+emerald.plugins["resource"] = (function(){
     return {
         stopped: true,
         debug: false,
@@ -11,7 +11,7 @@ Emerald.plugins["resource"] = (function(){
         loadedResources:0,
         hasFinished:false,
         setStopped:function(stop){
-            Emerald.plugins.resource.stopped = stop;
+            emerald.plugins.resource.stopped = stop;
         },
         addImage:function(source){
             var image = new Image();
@@ -29,7 +29,7 @@ Emerald.plugins["resource"] = (function(){
         addSound:function(source){
         },
         resourceLoaded:function(){
-            var e = Emerald.plugins.resource;
+            var e = emerald.plugins.resource;
             this.finishLoad();
             this.loaded = true;
             e.loadedResources++;
